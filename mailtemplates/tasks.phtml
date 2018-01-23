@@ -1,0 +1,96 @@
+<html>
+<head>
+<style>
+    table {
+    width:90%;
+    border-top:1px solid #e5eff8;
+    border-right:1px solid #e5eff8;
+    margin:1em auto;
+    border-collapse:collapse;
+    }
+    td {
+    color:#678197;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    }
+    
+    
+    thead th {
+    background:#f4f9fe;
+    text-align:center;
+    font:bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+    color:#66a3d3;
+    }
+    
+   tr.critical td{
+    background:#e61717;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    color:#000000;
+    
+}
+
+tr.info td{
+    background:#8dace0;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    color:#000000;
+    
+}
+
+tr.warning td{
+    background:#f5df73;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    color:#000000;
+    
+}
+</style>
+</head>
+
+<body>
+
+<table>
+
+
+	<thead>
+		<th>Task Name</th>
+		<th>State</th>
+		<th>Start Time</th>
+	</thead>
+	
+	<?php 
+
+		foreach ($data as $task) {
+			
+			
+			switch ($task['state']) {
+				case "COMPLETED" : echo '<tr class="info">'; break;
+				case "FAILED" :  echo '<tr class="critical">'; break;
+				case "CANCELLED" :  echo '<tr class="critical">'; break;
+				case "SCHEDULED" :  echo '<tr>'; break;
+			}	
+	?>
+	
+		<td><?php echo $task['displayName']?></td>
+		<td><?php echo $task['stateDisplayName']?></td>
+		<td><?php echo date("d-m-Y", ($task['startTime']/1000)) ?></td>
+	</tr>
+
+	<?php 		
+		}
+	?>
+	
+	</table>
+
+</body>
+</html>
+

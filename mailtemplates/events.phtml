@@ -1,0 +1,108 @@
+<html>
+<head>
+<style>
+    table {
+    width:90%;
+    border-top:1px solid #e5eff8;
+    border-right:1px solid #e5eff8;
+    margin:1em auto;
+    border-collapse:collapse;
+    }
+    td {
+    color:#678197;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    }
+    
+    
+    thead th {
+    background:#f4f9fe;
+    text-align:center;
+    font:bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+    color:#66a3d3;
+    }
+    
+   tr.critical td{
+    background:#e61717;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    color:#000000;
+    
+}
+
+tr.info td{
+    background:#8dace0;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    color:#000000;
+    
+}
+
+tr.warning td{
+    background:#f5df73;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+    color:#000000;
+    
+}
+</style>
+</head>
+
+<body>
+   <h1>Total Events: <?php echo $eventcounts["totalEvents"]?></h1>
+	<h2>
+	 <ul>
+  	<li>Total Critical Events: <?php echo $eventcounts["numCriticalEvents"]?></li>
+  	<li>Total Severe Events: <?php echo $eventcounts["numSevereEvents"]?></li>
+  	<li>Total Warning Events: <?php echo $eventcounts["numWarnEvents"]?></li>
+  	<li>Total Info Events: <?php echo $eventcounts["numInfoEvents"]?></li>
+</ul> 
+	</h2>
+
+
+<table>
+
+
+	<thead>
+		<th>Time</th>
+		<th>Severity</th>
+		<th>Message</th>
+	</thead>
+	
+	<?php 
+		//echo $valami."\n";
+		//var_dump($eventcounts);
+		foreach ($data as $event) {
+			
+			
+			switch ($event['severity']) {
+				case "INFO" : echo '<tr class="info">'; break;
+				case "WARN" :  echo '<tr class="warning">'; break;
+				case "CRITICAL" :  echo '<tr class="critical">'; break;
+				case "SEVERE" :  echo '<tr class="critical">'; break;
+			}	
+	?>
+	
+		<td><?php echo date("d-m-Y", ($event['timestamp']/1000)) ?></td>
+		<td><?php echo $event['severity']?></td>
+		<td><?php echo $event['message']?></td>
+	</tr>
+
+	<?php 		
+			//var_dump($event);
+		}
+	?>
+	
+	</table>
+
+</body>
+</html>
+
