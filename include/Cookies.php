@@ -136,7 +136,6 @@ class Cookies
 		foreach ($this->_cookie_storage AS $Key => $Value) {
 			if ($counter == $id){
 				 return $this->_cookie_storage[$Key];
-				$this->_totalcount--;
 			}
 			$counter++;
 		}
