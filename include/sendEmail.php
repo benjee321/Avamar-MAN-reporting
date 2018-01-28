@@ -1,5 +1,5 @@
 <?php
-
+namespace AERR;
 class sendEmail {
 	
 	private $_variables = array();

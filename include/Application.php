@@ -1,6 +1,8 @@
 <?php
+namespace AERR;
 require_once './include/Collector.php';
 require_once './include/Cookies.php';
+
 
 class Application
 {
