@@ -44,6 +44,7 @@ class Application
 	 */
 	private function __clone()
 	{
+		return void;
 	}
 
 	public function __destruct()
@@ -62,6 +63,7 @@ class Application
 	 */
 	private function __wakeup()
 	{
+		return void;
 	}
 
 	public function CheckServers(){
