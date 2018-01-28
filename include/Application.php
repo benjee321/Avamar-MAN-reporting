@@ -6,22 +6,22 @@ require_once './include/Cookies.php';
 
 class Application
 {
-	/**
-	 * @var Singleton The reference to *Singleton* instance of this class
-	 */
-	private static $instance;
-	private $_servers = array();
-	private $_authenticated;
-	private $_sendmail;
-	/**
-	 * Returns the *Singleton* instance of this class.
-	 *
-	 * @return Singleton The *Singleton* instance.
-	 */
-	public static function getInstance()
-	{
-		if (null === static::$instance) {
-			static::$instance = new static();
+        /**
+         * @var Singleton The reference to *Singleton* instance of this class
+        */
+        private static $instance;
+        private $_servers = array();
+        private $_authenticated;
+        private $_sendmail;
+        /**
+         * Returns the *Singleton* instance of this class.
+         *
+         * @return Singleton The *Singleton* instance.
+         */
+        public static function getInstance()
+        {
+          if (null === static::$instance) {
+           static::$instance = new static();
 		}
 
 		return static::$instance;

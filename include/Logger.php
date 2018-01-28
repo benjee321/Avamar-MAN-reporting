@@ -3,10 +3,10 @@
 class Logger
 {
     /**
-	* @var Singleton The reference to *Singleton* instance of this class
-	*/
-	private static $instance;
-	private $_logfile = null;
+    * @var Singleton The reference to *Singleton* instance of this class
+    */
+    private static $instance;
+    private $_logfile = null;
 
     /**
 	 * Returns the *Singleton* instance of this class.
